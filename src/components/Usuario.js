@@ -16,7 +16,7 @@ export default function Usuario() {
     } 
     
     return (
-        <div class="usuario">
+        <div class="usuario" data-test="user">
             <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} />
             <div class="texto">
                 <strong>catanacomics</strong>
