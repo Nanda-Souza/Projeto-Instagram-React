@@ -14,7 +14,7 @@ export default function Usuario() {
         const imagemPerfil = prompt("Escolha o link da sua imagem")
         setImagem(imagemPerfil)
     } 
-    //<img onClick={inserirImagem} src={!imagem ? imagemPadrao : imagem} />
+    
     return (
         <div class="usuario">
             <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} />
