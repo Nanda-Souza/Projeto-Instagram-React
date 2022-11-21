@@ -17,12 +17,12 @@ export default function Usuario() {
     
     return (
         <div class="usuario" data-test="user">
-            <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} />
+            <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} data-test="profile-image"/>
             <div class="texto">
                 <strong>catanacomics</strong>
-                <span>
-                {!nome ? "Catana" : nome}
-                    <ion-icon name="pencil" onClick={mudarNome}></ion-icon>
+                <span data-test="name"> 
+                {!nome ? "Catana" : nome} 
+                    <ion-icon name="pencil" onClick={mudarNome} data-test="edit-name"></ion-icon>
                 </span>
             </div>
         </div>        
