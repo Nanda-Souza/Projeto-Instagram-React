@@ -1,16 +1,9 @@
+import Usuario from "../components/Usuario"
+
 export default function SideBar() {
     return (
         <div class="sidebar">
-        <div class="usuario">
-          <img src="assets/img/catanacomics.svg" />
-          <div class="texto">
-            <strong>catanacomics</strong>
-            <span>
-              Catana
-              <ion-icon name="pencil"></ion-icon>
-            </span>
-          </div>
-        </div>
+            <Usuario />
 
         <div class="sugestoes">
           <div class="titulo">
