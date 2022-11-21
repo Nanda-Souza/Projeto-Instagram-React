@@ -1,24 +1,28 @@
-export default function Usuario() {
-    const nomePadrao = "Catana"
+import React, { useState } from "react"
+
+export default function Usuario() {   
+    const imgPerfil = "assets/img/catanacomics.svg"
+    const [nome, setNome] = React.useState("")
+    const [imagem, setImagem] = useState(imgPerfil)
     
-    function alertarMessagem() {
-        console.log("Works");
-    }
+    function mudarNome() {
+        setNome(prompt("Qual seu novo nome?"))
+        
+    }    
 
-    function AlertM(){
-        return(
-            <ion-icon name="pencil" onclick="alertarMessagem()"></ion-icon>
-        )
-    }
-
+    function mudarImgPerfil() {
+        const imagemPerfil = prompt("Escolha o link da sua imagem")
+        setImagem(imagemPerfil)
+    } 
+    //<img onClick={inserirImagem} src={!imagem ? imagemPadrao : imagem} />
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" />
+            <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} />
             <div class="texto">
                 <strong>catanacomics</strong>
                 <span>
-                {nomePadrao}
-                    <AlertM />
+                {!nome ? "Catana" : nome}
+                    <ion-icon name="pencil" onClick={mudarNome}></ion-icon>
                 </span>
             </div>
         </div>        
