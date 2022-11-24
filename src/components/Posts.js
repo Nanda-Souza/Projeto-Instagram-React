@@ -4,8 +4,8 @@ export default function Posts() {
         { user: "barked", userImg: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", userCurt:"adorable_animals", userCurtImg:"assets/img/adorable_animals.svg", bookmark: "bookmark-outline", curtidas: 99.159}
     ]
     return (
-        <div class="posts">
-            {listaPosts.map((p) => <Post user={p.user} userImg={p.userImg} conteudo={p.conteudo} userCurt={p.userCurt} userCurtImg={p.userCurtImg} bookmark={p.bookmark} curtidas=
+        <div className="posts">
+            {listaPosts.map((p) => <Post key={p.user} user={p.user} userImg={p.userImg} conteudo={p.conteudo} userCurt={p.userCurt} userCurtImg={p.userCurtImg} bookmark={p.bookmark} curtidas=
             {p.curtidas}/>)}          
             
         </div>        
@@ -13,23 +13,23 @@ export default function Posts() {
 }
 function Post(props){    
     return(
-        <div class="post" data-test="post">
-            <div class="topo">
-              <div class="usuario">
+        <div className="post" data-test="post">
+            <div className="topo">
+              <div className="usuario">
                 <img src={props.userImg} />
                 {props.user}
               </div>
-              <div class="acoes">
+              <div className="acoes">
                 <ion-icon name="ellipsis-horizontal"></ion-icon>
               </div>
             </div>
 
-            <div class="conteudo">
+            <div className="conteudo">
               <img src={props.conteudo} data-test="post-image"/>
             </div>
 
-            <div class="fundo">
-              <div class="acoes">
+            <div className="fundo">
+              <div className="acoes">
                 <div>
                   <ion-icon name="heart-outline"></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
@@ -40,9 +40,9 @@ function Post(props){
                 </div>
               </div>
 
-              <div class="curtidas">
+              <div className="curtidas">
                 <img src={props.userCurtImg} />
-                <div class="texto">
+                <div className="texto">
                   Curtido por <strong>{props.userCurt}</strong> e <strong>outras {props.curtidas} pessoas</strong>
                 </div>
               </div>

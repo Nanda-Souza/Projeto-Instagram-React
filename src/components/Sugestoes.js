@@ -7,12 +7,12 @@ export default function Sugestoes() {
         {user: "smallcutecats", userImg: "assets/img/smallcutecats.svg", razao: "Segue você"},
     ]
     return (
-        <div class="sugestoes">
-          <div class="titulo">
+        <div className="sugestoes">
+          <div className="titulo">
             Sugestões para você
             <div>Ver tudo</div>
           </div>
-          {listaSugestoes.map((s) => <Sugestao user={s.user} userImg={s.userImg} razao={s.razao} />)}                  
+          {listaSugestoes.map((s) => <Sugestao key={s.user} user={s.user} userImg={s.userImg} razao={s.razao} />)}                  
 
         </div>
     );
@@ -20,16 +20,16 @@ export default function Sugestoes() {
 
 function Sugestao(props){
     return(
-        <div class="sugestao">
-            <div class="usuario">
+        <div className="sugestao">
+            <div className="usuario">
               <img src={props.userImg} />
-              <div class="texto">
-                <div class="nome">{props.user}</div>
-                <div class="razao">{props.razao}</div>
+              <div className="texto">
+                <div className="nome">{props.user}</div>
+                <div className="razao">{props.razao}</div>
               </div>
             </div>
 
-            <div class="seguir">Seguir</div>
+            <div className="seguir">Seguir</div>
           </div>
     );
 }

@@ -16,9 +16,9 @@ export default function Usuario() {
     } 
     
     return (
-        <div class="usuario" data-test="user">
+        <div className="usuario" data-test="user">
             <img onClick={mudarImgPerfil} src={!imagem ? imgPerfil : imagem} data-test="profile-image"/>
-            <div class="texto">
+            <div className="texto">
                 <strong>catanacomics</strong>
                 <span data-test="name"> 
                 {!nome ? "Catana" : nome} 
