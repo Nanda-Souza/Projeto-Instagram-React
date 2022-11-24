@@ -1,17 +1,32 @@
+import React, { useState } from "react"
+
 export default function Posts() {
     const listaPosts = [
-        { user: "meowed", userImg: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg", userCurt:"respondeai", userCurtImg:"assets/img/respondeai.svg", bookmark: "bookmark-outline", curtidas: 101.523},
-        { user: "barked", userImg: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", userCurt:"adorable_animals", userCurtImg:"assets/img/adorable_animals.svg", bookmark: "bookmark-outline", curtidas: 99.159}
+        { user: "meowed", userImg: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg", userCurt:"respondeai", userCurtImg:"assets/img/respondeai.svg", curtidas: 101.523},
+        { user: "barked", userImg: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", userCurt:"adorable_animals", userCurtImg:"assets/img/adorable_animals.svg", curtidas: 99.159}
     ]
     return (
         <div className="posts">
-            {listaPosts.map((p) => <Post key={p.user} user={p.user} userImg={p.userImg} conteudo={p.conteudo} userCurt={p.userCurt} userCurtImg={p.userCurtImg} bookmark={p.bookmark} curtidas=
+            {listaPosts.map((p) => <Post key={p.user} user={p.user} userImg={p.userImg} conteudo={p.conteudo} userCurt={p.userCurt} userCurtImg={p.userCurtImg} curtidas=
             {p.curtidas}/>)}          
             
         </div>        
     );
 }
-function Post(props){    
+function Post(props){
+  const statusPadrao = "bookmark-outline"  
+  const [statusPost, setPost] = useState(statusPadrao)
+
+  function salvarPost() {
+    if (statusPost == "bookmark"){
+      setPost("bookmark-outline")
+    }
+    else{
+      setPost("bookmark")
+    }    
+    
+}
+
     return(
         <div className="post" data-test="post">
             <div className="topo">
@@ -36,7 +51,7 @@ function Post(props){
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
                 <div>
-                  <ion-icon name={props.bookmark}></ion-icon>
+                  <ion-icon name={!statusPost ? statusPadrao : statusPost} onClick={salvarPost}></ion-icon>
                 </div>
               </div>
 
