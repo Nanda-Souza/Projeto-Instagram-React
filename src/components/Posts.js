@@ -2,8 +2,8 @@ import React, { useState } from "react"
 
 export default function Posts() {
     const listaPosts = [
-        { user: "meowed", userImg: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg", userCurt:"respondeai", userCurtImg:"assets/img/respondeai.svg", curtidas: 101.523},
-        { user: "barked", userImg: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", userCurt:"adorable_animals", userCurtImg:"assets/img/adorable_animals.svg", curtidas: 99.159}
+        { user: "meowed", userImg: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg", userCurt:"respondeai", userCurtImg:"assets/img/respondeai.svg", curtidas: 101523},
+        { user: "barked", userImg: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", userCurt:"adorable_animals", userCurtImg:"assets/img/adorable_animals.svg", curtidas: 99159}
     ]
     return (
         <div className="posts">
@@ -13,7 +13,8 @@ export default function Posts() {
         </div>        
     );
 }
-function Post(props){
+function Post(props){  
+  const [statusCurtidas, setCurtidas] = useState(props.curtidas)
   const statusPadrao = "bookmark-outline"  
   const [statusPost, setPost] = useState(statusPadrao)
   const likePadrao = "heart-outline" 
@@ -35,10 +36,12 @@ function Post(props){
     if (likePost == "heart"){
       setLikePost("heart-outline")
       setCorLikePost("black-heart")
+      setCurtidas(statusCurtidas - 1)
     }
     else{
       setLikePost("heart")
       setCorLikePost("red-heart")
+      setCurtidas(statusCurtidas + 1)
   }
 }
 
@@ -80,7 +83,7 @@ function likeNaImg() {
               <div className="curtidas">
                 <img src={props.userCurtImg} />
                 <div className="texto">
-                  Curtido por <strong>{props.userCurt}</strong> e <strong>outras {props.curtidas} pessoas</strong>
+                  Curtido por <strong>{props.userCurt}</strong> e <strong>outras {statusCurtidas.toLocaleString()} pessoas</strong>
                 </div>
               </div>
             </div>
