@@ -49,6 +49,7 @@ function likeNaImg() {
   if (likePost == "heart-outline"){
     setLikePost("heart")
     setCorLikePost("red-heart")
+    setCurtidas(statusCurtidas + 1)
   }
 }
 
