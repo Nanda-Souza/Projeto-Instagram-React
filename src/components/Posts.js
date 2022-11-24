@@ -16,6 +16,11 @@ export default function Posts() {
 function Post(props){
   const statusPadrao = "bookmark-outline"  
   const [statusPost, setPost] = useState(statusPadrao)
+  const likePadrao = "heart-outline" 
+  const [likePost, setLikePost] = useState(likePadrao)
+  const corLikePadrao = "black-heart" 
+  const [corLikePost, setCorLikePost] = useState(corLikePadrao)
+  
 
   function salvarPost() {
     if (statusPost == "bookmark"){
@@ -23,8 +28,18 @@ function Post(props){
     }
     else{
       setPost("bookmark")
-    }    
-    
+    }   
+}
+
+  function likeNoPost() {
+    if (likePost == "heart"){
+      setLikePost("heart-outline")
+      setCorLikePost("black-heart")
+    }
+    else{
+      setLikePost("heart")
+      setCorLikePost("red-heart")
+  }
 }
 
     return(
@@ -46,7 +61,7 @@ function Post(props){
             <div className="fundo">
               <div className="acoes">
                 <div>
-                  <ion-icon name="heart-outline"></ion-icon>
+                  <span className={!corLikePost ? corLikePadrao : corLikePost}> <ion-icon name={!likePost ? likePadrao : likePost} onClick={likeNoPost}></ion-icon> </span>                  
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>

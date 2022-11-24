@@ -400,3 +400,10 @@ ion-icon {
   margin-left: 5px;
 }
 
+.red-heart ion-icon {
+  color: red;
+}
+
+.black-heart ion-icon {
+  color: black;
+}
