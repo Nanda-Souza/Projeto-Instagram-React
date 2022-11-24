@@ -42,6 +42,13 @@ function Post(props){
   }
 }
 
+function likeNaImg() {
+  if (likePost == "heart-outline"){
+    setLikePost("heart")
+    setCorLikePost("red-heart")
+  }
+}
+
     return(
         <div className="post" data-test="post">
             <div className="topo">
@@ -55,7 +62,7 @@ function Post(props){
             </div>
 
             <div className="conteudo">
-              <img src={props.conteudo} data-test="post-image"/>
+              <img src={props.conteudo} data-test="post-image" onClick={likeNaImg}/>
             </div>
 
             <div className="fundo">
